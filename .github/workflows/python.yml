@@ -2,7 +2,7 @@ name: API Tests
 on: [push]
 jobs:
   test:
-    runs-on: ubuntu-latest  # Использует Ubuntu 24.04
+    runs-on: windows-latest  # Использует Ubuntu 24.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
