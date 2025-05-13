@@ -1,7 +1,3 @@
-import requests
-from jsonschema import validate
-import pytest
-
 def test_get_users():  
     response = requests.get("https://reqres.in/api/users?page=2")  
     assert response.status_code == 200  
@@ -29,10 +25,13 @@ def test_create_user_params(name, job):
     response = requests.post("https://reqres.in/api/users", json={"name": name, "job": job})  
     assert response.status_code == 201  
 
+
 def test_invalid_login():  
     response = requests.post("https://reqres.in/api/login", json={"email": "test@test"})  
     assert response.status_code == 400  
     assert "error" in response.json()  
+
+
 def test_not_found():  
     response = requests.get("https://reqres.in/api/users/999")  
     assert response.status_code == 404  
